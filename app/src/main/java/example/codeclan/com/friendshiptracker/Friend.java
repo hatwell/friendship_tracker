@@ -1,5 +1,6 @@
 package example.codeclan.com.friendshiptracker;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -19,7 +20,7 @@ public class Friend {
         this.lastName = lastName;
         this.totalDays = totalDays;
         this.daysRemaining = totalDays;
-        this.dateSet =
+        this.dateSet = Calendar.getInstance().getTime();
 
     }
 
@@ -39,15 +40,20 @@ public class Friend {
         return daysRemaining;
     }
 
+    public Date getDateSet(){
+        return dateSet;
+    }
+
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }
 
-    public void setLastName(String LastName){
+    public void setLastName(String lastName){
         this.lastName = lastName;
     }
 
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
     }
+
 }
