@@ -55,13 +55,19 @@ public class DBHandler extends SQLiteOpenHelper {
                 KEY_LAST_NAME + "TEXT" +
                 KEY_TOTAL_DAYS + "DATE" +
                 KEY_DAYS_REMAINING + "INTEGER" +
-                KEY_DATE_SET + "DATE";
-
-
+                KEY_DATE_SET + "DATE" +")";
+        db.execSQL(CREATE_FRIENDS_TABLE);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //Drop table if older existed
+        db.execSQL("DROP TABLE IF EXISTS" + TABLE_FRIENDS);
+        //Creating tables again
+        onCreate(db);
     }
+
+    //Adding new friend
+    
 }
