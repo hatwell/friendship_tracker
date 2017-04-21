@@ -1,7 +1,7 @@
 package example.codeclan.com.friendshiptracker;
 
-import java.util.Calendar;
 import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Created by user on 20/04/2017.
@@ -24,6 +24,10 @@ public class Friend {
 
     }
 
+    public Friend() {
+
+    }
+
     public String getFirstName(){
         return this.firstName;
     }
@@ -40,6 +44,10 @@ public class Friend {
         return daysRemaining;
     }
 
+    public void setDaysRemaining(int daysRemaining){
+        this.daysRemaining = daysRemaining;
+    }
+
     public Date getDateSet(){
         return dateSet;
     }
@@ -54,6 +62,15 @@ public class Friend {
 
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+
+    public void setDateSet(long timestamp){
+        this.dateSet = new Date(timestamp);
     }
 
 }
