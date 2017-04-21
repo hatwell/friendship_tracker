@@ -44,7 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private int totalDays;
     private int daysRemaining;
     private Date dateSet;
-    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -89,7 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
 //
-
+    //get list of all friends
     public List<Friend> getAllFriends() {
         List<Friend> friendList = new ArrayList<Friend>();
         String selectQuery = "SELECT * FROM" + TABLE_FRIENDS;
@@ -110,9 +110,11 @@ public class DBHandler extends SQLiteOpenHelper {
             while (cursor.moveToNext());
         }
 
+        return friendList;
+
     }
 
-
+    //Get friends count
     public int getFriendsCount() {
         String countQuery = "SELECT * FROM" + TABLE_FRIENDS;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -124,6 +126,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     public int updateFriend(Friend friend) {
+        //TODO write this method lol
+        return 1;
+    }
 
 
 

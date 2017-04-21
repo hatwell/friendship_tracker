@@ -2,6 +2,7 @@ package example.codeclan.com.friendshiptracker;
 
 import java.util.Date;
 import java.util.Calendar;
+import java.util.jar.Pack200;
 
 /**
  * Created by user on 20/04/2017.
@@ -28,6 +29,8 @@ public class Friend {
 
     }
 
+    //Getters n setters
+
     public String getFirstName(){
         return this.firstName;
     }
@@ -40,7 +43,7 @@ public class Friend {
         return totalDays;
     }
 
-    public int getDaysRemaining() {
+    public Integer getDaysRemaining() {
         return daysRemaining;
     }
 
@@ -68,9 +71,18 @@ public class Friend {
         this.id = id;
     }
 
-
     public void setDateSet(long timestamp){
         this.dateSet = new Date(timestamp);
     }
+
+    //end of getters and setters, now some more interesting stuff
+
+
+    //Resets number of days left until you see your pal to full amount.
+
+    public void resetDays(){
+        this.daysRemaining = totalDays;
+    }
+
 
 }

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FriendshipTracker</string>
+    <string name="first_name_hint">friend\'s first name</string>
+    <string name="last_name_hint">friend\'s last name</string>
+    <string name="first_name">first name</string>
+    <string name="last_name">last name</string>
+    <string name="add_friend_button">add friend</string>
+    <string name="total_days_string">how often (in days) do you want to see your pal?</string>
+
 </resources>
