@@ -1,12 +1,19 @@
 package example.codeclan.com.friendshiptracker;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import java.util.Date;
 
 public class AddFriendActivity extends AppCompatActivity {
+
+    public DBHandler myDb;
+    public Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +27,14 @@ public class AddFriendActivity extends AppCompatActivity {
 
         Log.d(getClass().toString(), "i'm clking my add friend button");
 
+        myDb.addFriend(first_name, last_name, days_total, date);
         Intent intent = new Intent(this, AllFriendsListActivity.class);
 
         startActivity(intent);
+
+    }
+
+    public void addFriend(Context context) {
 
     }
 

@@ -1,6 +1,8 @@
 package example.codeclan.com.friendshiptracker;
 
-import java.util.List;
+import android.content.Context;
+
+import java.util.ArrayList;
 
 /**
  * Created by user on 21/04/2017.
@@ -8,15 +10,18 @@ import java.util.List;
 
 public class FriendsList {
 
+    private ArrayList<Friend> friendList;
+    private Context context;
+
     public FriendsList() {
-        List<Friend> friendList;
+        ArrayList<Friend> friendList;
 
-        DBHandler friendsDb = new DBHandler(this);
+        DBHandler friendsDb = new DBHandler(context);
 
-        friendList = friendsDb.getAllFriends();
+        this.friendList = friendsDb.getAllFriends();
     }
 
-    public List<Friend> getList() {
+    public ArrayList<Friend> getList() {
         return this.friendList;
     }
 }

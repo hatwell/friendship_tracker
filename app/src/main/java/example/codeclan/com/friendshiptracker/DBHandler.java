@@ -90,8 +90,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
 //
     //get list of all friends
-    public List<Friend> getAllFriends() {
-        List<Friend> friendList = new ArrayList<Friend>();
+    public ArrayList<Friend> getAllFriends() {
+        ArrayList<Friend> friendList = new ArrayList<Friend>();
         String selectQuery = "SELECT * FROM" + TABLE_FRIENDS;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
