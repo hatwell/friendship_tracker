@@ -5,4 +5,6 @@ package example.codeclan.com.friendshiptracker;
  */
 
 public class MainActivity {
+
+    NiceDate date = new NiceDate();
 }

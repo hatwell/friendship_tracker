@@ -30,9 +30,9 @@ public class AddFriendActivity extends AppCompatActivity {
 
 
         //TODO in this section i cast all my form fields
-        View first_name = (EditText) findViewById(R.id.add_first_name);
-        View last_name = (EditText) findViewById(R.id.add_last_name);
-        View days_total = (EditText) findViewById(R.id.add_days_total);
+        add_first_name = (EditText) findViewById(R.id.add_first_name);
+        add_last_name = (EditText) findViewById(R.id.add_last_name);
+        add_days_total = (EditText) findViewById(R.id.add_days_total);
 
 
     }
