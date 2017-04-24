@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by user on 21/04/2017.
@@ -29,15 +30,25 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.all_friends_item, parent,false);
         }
 
+        Date date = new Date();
+        NiceDate niceDate = new NiceDate();
+
         Friend currentFriend = getItem(position);
         TextView daysRemaining = (TextView) listItemView.findViewById(R.id.days_remaining);
-        daysRemaining.setText(currentFriend.getDaysRemaining().toString());
+        daysRemaining.setText(Long.toString(currentFriend.getDaysRemaining()));
 
         TextView firstName = (TextView) listItemView.findViewById(R.id.first_name);
         firstName.setText(currentFriend.getFirstName());
 
         TextView lastName = (TextView) listItemView.findViewById(R.id.last_name);
         lastName.setText(currentFriend.getLastName());
+
+        TextView dateSet = (TextView) listItemView.findViewById(R.id.date_set);
+        dateSet.setText(currentFriend.getDateSet().toString());
+
+        TextView today = (TextView) listItemView.findViewById(R.id.today);
+        today.setText(niceDate.getNiceDate(date));
+
 
         listItemView.setTag(currentFriend);
 

@@ -1,6 +1,7 @@
 package example.codeclan.com.friendshiptracker;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by user on 24/04/2017.
@@ -8,7 +9,7 @@ import java.util.Date;
 
 public class NiceDate {
 
-    Date date;
+
 
     public NiceDate(){
 
@@ -20,4 +21,5 @@ public class NiceDate {
         String dayString = dateString.substring(0, 10);
         return dayString + "," + yearString;
     }
+
 }

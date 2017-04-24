@@ -51,7 +51,7 @@ public class AddFriendActivity extends AppCompatActivity {
         //
 
         myDb = new DBHandler(this);
-        Date date = new Date();
+
 
         Log.d(getClass().toString(), "i'm clicking my add friend button");
 
@@ -64,9 +64,7 @@ public class AddFriendActivity extends AppCompatActivity {
 
     }
 
-    public void addFriend(Context context) {
 
-    }
 
 
 //

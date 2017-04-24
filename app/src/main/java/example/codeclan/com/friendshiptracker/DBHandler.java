@@ -57,7 +57,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 KEY_DATE_SET + "DATETIME" +")";
         db.execSQL(CREATE_FRIENDS_TABLE);
 
-        addFriend(new Friend("Dominic", "Fraser", 200));
     }
 
 
@@ -91,9 +90,13 @@ public class DBHandler extends SQLiteOpenHelper {
 //
     //get list of all friends
     public ArrayList<Friend> getAllFriends() {
+
+
         ArrayList<Friend> friendList = new ArrayList<Friend>();
-        String selectQuery = "SELECT * FROM" + TABLE_FRIENDS;
-        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        String selectQuery = "SELECT * FROM " + TABLE_FRIENDS;
+            SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
@@ -106,9 +109,13 @@ public class DBHandler extends SQLiteOpenHelper {
                 friend.setDaysRemaining(Integer.parseInt(cursor.getString(4)));
                 friend.setDateSet(cursor.getLong(5));
 
+                friendList.add(friend);
+
             }
             while (cursor.moveToNext());
         }
+
+        cursor.close();
 
         return friendList;
 

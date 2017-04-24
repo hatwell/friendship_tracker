@@ -11,10 +11,8 @@ import java.util.ArrayList;
 public class FriendsList {
 
     private ArrayList<Friend> friendList;
-    private Context context;
 
-    public FriendsList() {
-        ArrayList<Friend> friendList;
+    public FriendsList(Context context) {
 
         DBHandler friendsDb = new DBHandler(context);
 
@@ -23,5 +21,9 @@ public class FriendsList {
 
     public ArrayList<Friend> getList() {
         return this.friendList;
+    }
+
+    public int getListSize() {
+        return friendList.size();
     }
 }
