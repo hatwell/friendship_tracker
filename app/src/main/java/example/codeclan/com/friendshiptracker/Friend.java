@@ -18,6 +18,7 @@ public class Friend {
     private String firstName;
     private String lastName;
     private int totalDays;
+    private int daysRemaining;
 
     private Date dateSet;
     private TimeUnit timeUnit;
@@ -27,10 +28,12 @@ public class Friend {
 
 
     public Friend(String firstName, String lastName, int totalDays) {
+        this.id = 0;
         this.firstName = firstName;
         this.lastName = lastName;
         this.totalDays = totalDays;
         this.dateSet = Calendar.getInstance().getTime();
+        this.daysRemaining = 0;
 
     }
 
@@ -46,6 +49,10 @@ public class Friend {
 
 
     //Getters n setters
+
+    public int getId(){
+        return this.id;
+    }
 
     public String getFirstName(){
         return this.firstName;

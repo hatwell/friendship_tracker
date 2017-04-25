@@ -40,8 +40,13 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
 
         TextView daysRemaining = (TextView) listItemView.findViewById(R.id.days_remaining);
         daysRemaining.setText(Long.toString(currentFriend.getDaysRemaining()));
-        if (currentFriend.getDaysRemaining() < 10)
+        if (currentFriend.getDaysRemaining() < 10) {
             daysRemaining.setBackgroundColor(Color.RED);
+        }
+        else {
+            daysRemaining.setBackgroundColor(Color.WHITE);
+        }
+
 
 
         //display first name
@@ -61,10 +66,7 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         resetButton.setVisibility(View.VISIBLE);
 
 
-
-        listItemView.setTag(currentFriend);
-
-
+        resetButton.setTag(currentFriend);
 
         return listItemView;
 

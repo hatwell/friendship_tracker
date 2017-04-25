@@ -131,8 +131,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     public int updateFriend(Friend friend) {
-        //TODO write this method lol
-        return 1;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_FIRST_NAME, friend.getFirstName());
+        values.put(KEY_LAST_NAME, friend.getLastName());
+        values.put(KEY_TOTAL_DAYS, friend.getTotalDays());
+        values.put(KEY_DATE_SET, friend.getDateSet().toString());
+
+        return db.update(TABLE_FRIENDS, values, KEY_ID + "=?",
+                new String[]{String.valueOf(friend.getId())});
+
     }
 
 

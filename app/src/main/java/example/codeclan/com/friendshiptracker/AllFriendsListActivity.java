@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,12 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Log.d("friend name: ", friend.getFirstName());
     }
 
-    public void resetButtonClicked(View listItem) {
+    public void resetButtonClicked(View button) {
+        Friend friend = (Friend) button.getTag();
+        friend.resetDays();
+        DBHandler dbHandler = new DBHandler(this);
+        dbHandler.updateFriend(friend);
+
 
     }
 }
