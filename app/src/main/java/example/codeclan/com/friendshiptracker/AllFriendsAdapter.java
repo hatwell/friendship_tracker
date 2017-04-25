@@ -49,7 +49,7 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         }
 
 
-    
+
         //display first name
         TextView firstName = (TextView) listItemView.findViewById(R.id.first_name);
         firstName.setText(currentFriend.getFirstName());
