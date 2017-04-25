@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AllFriendsListActivity extends AppCompatActivity {
 
@@ -43,6 +45,8 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Friend friend = (Friend) button.getTag();
         friend.resetDays();
         DBHandler dbHandler = new DBHandler(this);
+        Date rightNow = Calendar.getInstance().getTime();
+        Log.d("the date and time is", rightNow.toString());
         dbHandler.updateFriend(friend);
 
 
