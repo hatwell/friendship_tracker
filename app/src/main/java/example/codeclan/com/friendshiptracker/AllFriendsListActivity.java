@@ -14,11 +14,15 @@ import java.util.Date;
 
 public class AllFriendsListActivity extends AppCompatActivity {
 
-
+    Date rightNow = Calendar.getInstance().getTime();
+    String titleDate = NiceDate.getNiceDate(rightNow);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTitle("Friendship Tracker " + titleDate);
+
         setContentView(R.layout.activity_all_friends_list);
         Log.d(getClass().toString(), "friends list page loaded");
 
@@ -38,7 +42,6 @@ public class AllFriendsListActivity extends AppCompatActivity {
 
     public void getFriend(View listItem){
        Friend friend = (Friend) listItem.getTag();
-        Log.d("friend name: ", friend.getFirstName());
     }
 
     public void resetButtonClicked(View button) {
@@ -49,6 +52,12 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Log.d("the date and time is", rightNow.toString());
         dbHandler.updateFriend(friend);
 
+    }
 
+    public void deleteButtonClicked(View button){
+        Friend friend = (Friend) button.getTag();
+        DBHandler dbHandler = new DBHandler(this);
+        dbHandler.deleteFriend(friend);
+        Log.d(friend.getFirstName().toString(), "was deleted");
     }
 }

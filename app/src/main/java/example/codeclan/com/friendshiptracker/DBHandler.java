@@ -143,6 +143,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    public void deleteFriend(Friend friend) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_FRIENDS, KEY_ID + "= ?",
+                new String[] {String.valueOf(friend.getId())});
+
+    }
 
 
 

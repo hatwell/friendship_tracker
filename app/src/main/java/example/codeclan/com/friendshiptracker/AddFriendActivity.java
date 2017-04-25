@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.EditText;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class AddFriendActivity extends AppCompatActivity {
@@ -21,10 +22,15 @@ public class AddFriendActivity extends AppCompatActivity {
     private EditText add_last_name;
     private EditText add_days_total;
 
+    Date rightNow = Calendar.getInstance().getTime();
+    String titleDate = NiceDate.getNiceDate(rightNow);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTitle("Friendship Tracker " + titleDate);
+
         setContentView(R.layout.activity_add_friend);
         Log.d(getClass().toString(),"the adding friend form has loaded!!");
 

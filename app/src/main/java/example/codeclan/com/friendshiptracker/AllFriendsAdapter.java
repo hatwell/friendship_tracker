@@ -2,6 +2,7 @@ package example.codeclan.com.friendshiptracker;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,10 +58,12 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         lastName.setText(currentFriend.getLastName());
 
         TextView dateSet = (TextView) listItemView.findViewById(R.id.date_set);
-        dateSet.setText(niceDate.getNiceDate(currentFriend.getDateSet()));
+        dateSet.setText(NiceDate.getNiceDate(currentFriend.getDateSet()));
+        Log.d("date set: ", NiceDate.getNiceDate(currentFriend.getDateSet()));
 
         TextView today = (TextView) listItemView.findViewById(R.id.today);
-        today.setText(niceDate.getNiceDate(date_today));
+        today.setText(NiceDate.getNiceDate(date_today));
+        Log.d("date today: ", NiceDate.getNiceDate(date_today));
 
         Button resetButton = (Button) listItemView.findViewById(R.id.reset_button);
         resetButton.setVisibility(View.VISIBLE);

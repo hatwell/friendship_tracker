@@ -71,7 +71,7 @@ public class Friend {
     }
 
     public long getDaysRemaining() {
-        return this.getTotalDays() - this.differenceInDays(today, this.getDateSet(), TimeUnit.DAYS);
+        return this.getTotalDays() - this.differenceInDays(this.getDateSet(), today, TimeUnit.DAYS);
     }
 
 
