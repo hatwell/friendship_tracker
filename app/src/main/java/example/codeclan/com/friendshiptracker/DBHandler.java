@@ -76,7 +76,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_FIRST_NAME, friend.getFirstName());
         values.put(KEY_LAST_NAME, friend.getLastName());
         values.put(KEY_TOTAL_DAYS, friend.getTotalDays());
-        values.put(KEY_DAYS_REMAINING, friend.getTotalDays());
         values.put(KEY_DATE_SET, friend.getDateSet().getTime());
 
         /*TODO some kinda datatype discrepancy here*/
@@ -106,7 +105,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 friend.setFirstName(cursor.getString(1));
                 friend.setLastName(cursor.getString(2));
                 friend.setTotalDays(Integer.parseInt(cursor.getString(3)));
-                friend.setDaysRemaining(Integer.parseInt(cursor.getString(4)));
                 friend.setDateSet(cursor.getLong(5));
 
                 friendList.add(friend);

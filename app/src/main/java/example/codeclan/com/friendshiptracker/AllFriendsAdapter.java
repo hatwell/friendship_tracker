@@ -1,6 +1,7 @@
 package example.codeclan.com.friendshiptracker;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -21,9 +23,6 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
     }
 
 
-
-
-
     @Override
     public View getView(int position, View listItemView, ViewGroup parent){
 
@@ -31,13 +30,21 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.all_friends_item, parent,false);
         }
 
-        Date date = new Date();
+        Date date_today = Calendar.getInstance().getTime();
         NiceDate niceDate = new NiceDate();
 
+
+        //sets up each friend in the list
         Friend currentFriend = getItem(position);
+
+
         TextView daysRemaining = (TextView) listItemView.findViewById(R.id.days_remaining);
         daysRemaining.setText(Long.toString(currentFriend.getDaysRemaining()));
+        if (currentFriend.getDaysRemaining() < 10)
+            daysRemaining.setBackgroundColor(Color.RED);
 
+
+        //display first name
         TextView firstName = (TextView) listItemView.findViewById(R.id.first_name);
         firstName.setText(currentFriend.getFirstName());
 
@@ -48,13 +55,16 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         dateSet.setText(niceDate.getNiceDate(currentFriend.getDateSet()));
 
         TextView today = (TextView) listItemView.findViewById(R.id.today);
-        today.setText(niceDate.getNiceDate(date));
+        today.setText(niceDate.getNiceDate(date_today));
 
         Button resetButton = (Button) listItemView.findViewById(R.id.reset_button);
         resetButton.setVisibility(View.VISIBLE);
 
 
+
         listItemView.setTag(currentFriend);
+
+
 
         return listItemView;
 

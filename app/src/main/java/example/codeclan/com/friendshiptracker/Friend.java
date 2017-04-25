@@ -3,6 +3,7 @@ package example.codeclan.com.friendshiptracker;
 import android.util.Log;
 
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -17,19 +18,18 @@ public class Friend {
     private String firstName;
     private String lastName;
     private int totalDays;
-    private long daysRemaining;
+
     private Date dateSet;
     private TimeUnit timeUnit;
 
 
-    private Date today = new Date();
+    private Date today = Calendar.getInstance().getTime();
 
 
     public Friend(String firstName, String lastName, int totalDays) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.totalDays = totalDays;
-        this.daysRemaining = totalDays;
         this.dateSet = Calendar.getInstance().getTime();
 
     }
@@ -38,12 +38,12 @@ public class Friend {
 
     }
 
+    public long differenceInDays(Date date1, Date date2, TimeUnit timeUnit){
+        long diffInDays = date2.getTime() - date1.getTime();
+        return timeUnit.convert(diffInDays, TimeUnit.MILLISECONDS);
+    }
 
-//    public long differenceInDays(Date date1, Date date2, TimeUnit timeUnit){
-//        long diffInDays = date2.getTime() - date1.getTime();
-//        Log.d(getClass().toString(), Long.toString(diffInDays));
-//        return timeUnit.convert(diffInDays, TimeUnit.DAYS);
-//    }
+
 
     //Getters n setters
 
@@ -64,12 +64,9 @@ public class Friend {
     }
 
     public long getDaysRemaining() {
-        return this.getTotalDays();
+        return this.getTotalDays() - this.differenceInDays(today, this.getDateSet(), TimeUnit.DAYS);
     }
 
-    public void setDaysRemaining(int daysRemaining){
-        this.daysRemaining = daysRemaining;
-    }
 
     public Date getDateSet(){
         return dateSet;
@@ -101,7 +98,7 @@ public class Friend {
     //Resets number of days left until you see your pal to full amount.
 
     public void resetDays(){
-        this.daysRemaining = totalDays;
+        this.dateSet = today;
     }
 
 
