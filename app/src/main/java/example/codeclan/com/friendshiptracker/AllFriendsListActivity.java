@@ -38,6 +38,15 @@ public class AllFriendsListActivity extends AppCompatActivity {
 
     }
 
+    public void update() {
+        FriendsList friendsList = new FriendsList(this);
+        ArrayList<Friend> list = friendsList.getList();
+
+        AllFriendsAdapter friendsAdapter = new AllFriendsAdapter(this,list);
+
+        ListView listView = (ListView) findViewById(R.id.friends_list);
+        listView.setAdapter(friendsAdapter);
+    }
 
 
     public void getFriend(View listItem){
@@ -51,6 +60,7 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Date rightNow = Calendar.getInstance().getTime();
         Log.d("the date and time is", rightNow.toString());
         dbHandler.updateFriend(friend);
+        this.update();
 
     }
 
@@ -59,5 +69,6 @@ public class AllFriendsListActivity extends AppCompatActivity {
         DBHandler dbHandler = new DBHandler(this);
         dbHandler.deleteFriend(friend);
         Log.d(friend.getFirstName().toString(), "was deleted");
+        this.update();
     }
 }
