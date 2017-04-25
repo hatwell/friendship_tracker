@@ -17,9 +17,9 @@ public class NiceDate {
 
     public String getNiceDate(Date date) {
         String dateString = date.toString();
-        String yearString = date.toString().substring(23);
+        String yearString = date.toString().substring(30);
         String dayString = dateString.substring(0, 10);
-        return dayString + "," + yearString;
+        return dayString + ", " + yearString;
     }
 
 }

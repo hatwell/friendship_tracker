@@ -19,7 +19,6 @@ public class AllFriendsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_friends_list);
         Log.d(getClass().toString(), "friends list page loaded");
 
-
         Intent intent = getIntent();
 
         FriendsList friendsList = new FriendsList(this);
@@ -32,8 +31,14 @@ public class AllFriendsListActivity extends AppCompatActivity {
 
     }
 
+
+
     public void getFriend(View listItem){
        Friend friend = (Friend) listItem.getTag();
         Log.d("friend name: ", friend.getFirstName());
+    }
+
+    public void resetButtonClicked(View listItem) {
+
     }
 }
