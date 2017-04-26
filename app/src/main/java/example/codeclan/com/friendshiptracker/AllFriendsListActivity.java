@@ -77,11 +77,15 @@ public class AllFriendsListActivity extends AppCompatActivity {
         this.update();
     }
 
-    public void openContactsButtonClicked(View button){
-        Log.d(getClass().toString(), "open contacts button clicks");
-        Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
-        startActivity(intent);
-    }
+// This method was to open the contact app generally without searching for anything. Now the search method works
+// it's obsolete. i've left it in in case i need it later
+
+//    public void openContactsButtonClicked(View button){
+//        Log.d(getClass().toString(), "open contacts button clicks");
+//        Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
+//        startActivity(intent);
+//    }
+
 
     public void contactFriendButtonClicked(View button){
         Friend friend = (Friend) button.getTag();
