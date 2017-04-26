@@ -62,9 +62,9 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Friend friend = (Friend) button.getTag();
         friend.resetDays();
         DBHandler dbHandler = new DBHandler(this);
-        Date rightNow = Calendar.getInstance().getTime();
-        Log.d("the date and time is", rightNow.toString());
         dbHandler.updateFriend(friend);
+        Log.d("days remaining: ", String.valueOf(friend.getDaysRemaining()));
+        Log.d(getClass().toString(), "button clicked");
         this.update();
 
     }
