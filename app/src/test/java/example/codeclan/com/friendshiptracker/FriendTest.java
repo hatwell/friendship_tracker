@@ -43,6 +43,12 @@ public class FriendTest {
 
     }
 
+    @Test
+    public void friendHasFullName(){
+        assertEquals("Friendly Bear", friend.getFullName());
+        System.out.println(friend.getFullName());
+    }
+
 
 
 }

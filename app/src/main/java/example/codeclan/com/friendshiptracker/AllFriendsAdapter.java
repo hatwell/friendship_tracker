@@ -74,6 +74,9 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         Button deleteButton = (Button) listItemView.findViewById(R.id.delete_button);
         deleteButton.setVisibility(View.VISIBLE);
 
+        Button contactButton = (Button) listItemView.findViewById(R.id.contact_friend_button);
+        contactButton.setVisibility(View.VISIBLE);
+
 
         resetButton.setTag(currentFriend);
         deleteButton.setTag(currentFriend);

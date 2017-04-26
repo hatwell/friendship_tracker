@@ -82,4 +82,13 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
         startActivity(intent);
     }
+
+    public void contactFriendButtonClicked(View button){
+        Friend friend = (Friend) button.getTag();
+        String friendName = friend.getFullName();
+        Log.d(getClass().toString(), "open contacts button clicks");
+        Intent intent = new Intent(Intent.ACTION_SEARCH, ContactsContract.Contacts.CONTENT_URI);
+        intent.putExtra("searchString", friendName);
+        startActivity(intent);
+    }
 }
