@@ -27,12 +27,12 @@ public class Friend {
     private Date today = Calendar.getInstance().getTime();
 
 
-    public Friend(String firstName, String lastName, int totalDays) {
+    public Friend(String firstName, String lastName, int totalDays, Date dateSet) {
         this.id = 0;
         this.firstName = firstName;
         this.lastName = lastName;
         this.totalDays = totalDays;
-        this.dateSet = Calendar.getInstance().getTime();
+        this.dateSet = dateSet;
         this.daysRemaining = 0;
 
     }
