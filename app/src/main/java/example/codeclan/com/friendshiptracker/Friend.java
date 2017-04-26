@@ -105,7 +105,7 @@ public class Friend {
     //Resets number of days left until you see your pal to full amount.
 
     public void resetDays(){
-        this.dateSet = today;
+        this.daysRemaining = totalDays;
     }
 
 
