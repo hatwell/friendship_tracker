@@ -26,7 +26,7 @@ public class AllFriendsListActivity extends AppCompatActivity {
         setTitle("Friendship Tracker " + titleDate);
 
         Button openContactsButton = (Button) findViewById(R.id.open_contacts_button);
-        openContactsButton.setVisibility(View.VISIBLE);
+//        openContactsButton.setVisibility(Button.VISIBLE);
 
         setContentView(R.layout.activity_all_friends_list);
         Log.d(getClass().toString(), "friends list page loaded");
