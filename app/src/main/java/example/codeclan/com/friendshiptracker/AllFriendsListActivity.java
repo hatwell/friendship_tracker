@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +24,9 @@ public class AllFriendsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setTitle("Friendship Tracker " + titleDate);
+
+        Button openContactsButton = (Button) findViewById(R.id.open_contacts_button);
+        openContactsButton.setVisibility(View.VISIBLE);
 
         setContentView(R.layout.activity_all_friends_list);
         Log.d(getClass().toString(), "friends list page loaded");
@@ -73,7 +77,7 @@ public class AllFriendsListActivity extends AppCompatActivity {
         this.update();
     }
 
-    public void openContactsButtonClicked(){
+    public void openContactsButtonClicked(View button){
         Log.d(getClass().toString(), "open contacts button clicks");
         Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
         startActivity(intent);

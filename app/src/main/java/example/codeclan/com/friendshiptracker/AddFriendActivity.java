@@ -35,7 +35,7 @@ public class AddFriendActivity extends AppCompatActivity {
         Log.d(getClass().toString(),"the adding friend form has loaded!!");
 
 
-        //TODO in this section i cast all my form fields
+        //in this section i cast all my form fields
         add_first_name = (EditText) findViewById(R.id.add_first_name);
         add_last_name = (EditText) findViewById(R.id.add_last_name);
         add_days_total = (EditText) findViewById(R.id.add_days_total);
