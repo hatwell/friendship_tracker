@@ -1,6 +1,7 @@
 package example.codeclan.com.friendshiptracker;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,5 +71,11 @@ public class AllFriendsListActivity extends AppCompatActivity {
         dbHandler.deleteFriend(friend);
         Log.d(friend.getFirstName().toString(), "was deleted");
         this.update();
+    }
+
+    public void openContactsButtonClicked(){
+        Log.d(getClass().toString(), "open contacts button clicks");
+        Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
+        startActivity(intent);
     }
 }

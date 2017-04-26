@@ -8,5 +8,7 @@
     <string name="total_days_string">how often (in days) do you want to see your pal?</string>
     <string name="friend_seen_button">seen em!</string>
     <string name="friend_delete_button">delete em!</string>
+    <string name="contact_your_pals">contact your pals!</string>
+    <string name="contacts_button">open contacts</string>
 
 </resources>

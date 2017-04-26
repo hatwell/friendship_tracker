@@ -39,6 +39,8 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         Friend currentFriend = getItem(position);
 
 
+
+
         TextView daysRemaining = (TextView) listItemView.findViewById(R.id.days_remaining);
         daysRemaining.setText(Long.toString(currentFriend.getDaysRemaining()));
         if (currentFriend.getDaysRemaining() < 10) {
