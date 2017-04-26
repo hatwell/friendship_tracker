@@ -44,7 +44,7 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         String countDown = Long.toString(currentFriend.getDaysRemaining());
         daysRemaining.setText(countDown);
         if (currentFriend.getDaysRemaining() < 10) {
-            daysRemaining.setBackgroundColor(Color.RED);
+            daysRemaining.setBackgroundColor(Color.MAGENTA);
         }
         else {
             daysRemaining.setBackgroundColor(Color.TRANSPARENT);

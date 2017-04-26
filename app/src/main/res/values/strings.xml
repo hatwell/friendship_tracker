@@ -12,6 +12,6 @@
     <string name="contacts_button">open contacts</string>
 
     <string name="friend_contact_button">get in touch!</string>
-    <string name="how_many_days_label">\"how often in days do you want to see your friend?</string>
+    <string name="how_many_days_label">how often in days do you want to see your friend?</string>
 
 </resources>
