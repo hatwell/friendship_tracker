@@ -27,7 +27,7 @@ public class AllFriendsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_friends_list);
         Log.d(getClass().toString(), "friends list page loaded");
 
-        Intent intent = getIntent();
+//        Intent intent = getIntent();
 
         FriendsList friendsList = new FriendsList(this);
         ArrayList<Friend> list = friendsList.getList();
@@ -69,7 +69,7 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Friend friend = (Friend) button.getTag();
         DBHandler dbHandler = new DBHandler(this);
         dbHandler.deleteFriend(friend);
-        Log.d(friend.getFirstName().toString(), "was deleted");
+        Log.d(friend.getFirstName(), "was deleted");
         this.update();
     }
 

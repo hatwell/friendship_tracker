@@ -46,15 +46,12 @@ public class AddFriendActivity extends AppCompatActivity {
 
     public void addFriendButtonClicked(View button) {
 
-        //TODO here is where you assign the form input to variables
+        //here is where you assign the form input to variables
         String first_name = add_first_name.getText().toString();
         String last_name = add_last_name.getText().toString();
         String days_total = add_days_total.getText().toString();
 
         int number_days_total = Integer.parseInt(days_total);
-
-
-        //
 
         myDb = new DBHandler(this);
 
@@ -69,24 +66,4 @@ public class AddFriendActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
-
-
-
-//
-//    public void onCountButtonClicked(View button){
-//
-//        Log.d(getClass().toString(), "word counting button was clicked");
-//        String wordsToBeCounted = wordsEditText.getText().toString();
-//
-//        Log.d(getClass().toString(), wordsToBeCounted);
-//        Words myCounter = new Words(wordsToBeCounted);
-//        myCountedWordsHash = myCounter.countWords();
-//
-//        Intent intent = new Intent(this, WordCountResultsActivity.class);
-//
-//        intent.putExtra("words", myCountedWordsHash.toString());
-//        startActivity(intent);
-//
-//    }
 }
