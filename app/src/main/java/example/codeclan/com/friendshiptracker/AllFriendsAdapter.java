@@ -80,6 +80,7 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
 
         resetButton.setTag(currentFriend);
         deleteButton.setTag(currentFriend);
+        contactButton.setTag(currentFriend);
 
         return listItemView;
 
