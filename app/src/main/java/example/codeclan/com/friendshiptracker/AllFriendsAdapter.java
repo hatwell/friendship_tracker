@@ -40,7 +40,6 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
 
 
 
-
         TextView daysRemaining = (TextView) listItemView.findViewById(R.id.days_remaining);
         daysRemaining.setText(Long.toString(currentFriend.getDaysRemaining()));
         if (currentFriend.getDaysRemaining() < 10) {
@@ -62,7 +61,7 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
 
         TextView dateSet = (TextView) listItemView.findViewById(R.id.date_set);
         dateSet.setText(NiceDate.getNiceDate(currentFriend.getDateSet()));
-        Log.d("date set: ", NiceDate.getNiceDate(currentFriend.getDateSet()));
+//        Log.d("date set: ", NiceDate.getNiceDate(currentFriend.getDateSet()));
 
         TextView today = (TextView) listItemView.findViewById(R.id.today);
         today.setText(NiceDate.getNiceDate(date_today));

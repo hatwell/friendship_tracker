@@ -66,6 +66,7 @@ public class AllFriendsListActivity extends AppCompatActivity {
         Log.d("days remaining: ", String.valueOf(friend.getDaysRemaining()));
         Log.d(getClass().toString(), "button clicked");
         this.update();
+        Log.d("days remaining: ", String.valueOf(friend.getDaysRemaining()));
 
     }
 

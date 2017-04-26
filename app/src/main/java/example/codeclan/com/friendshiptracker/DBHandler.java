@@ -44,6 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private int totalDays;
     private int daysRemaining;
     private Date dateSet;
+    public Date today = Calendar.getInstance().getTime();
 
 
     @Override
@@ -136,7 +137,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_FIRST_NAME, friend.getFirstName());
         values.put(KEY_LAST_NAME, friend.getLastName());
         values.put(KEY_TOTAL_DAYS, friend.getTotalDays());
-        values.put(KEY_DATE_SET, friend.getDateSet().toString());
+        values.put(KEY_DATE_SET, today.toString());
 
         return db.update(TABLE_FRIENDS, values, KEY_ID + "=?",
                 new String[]{String.valueOf(friend.getId())});
