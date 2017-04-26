@@ -41,7 +41,8 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
 
 
         TextView daysRemaining = (TextView) listItemView.findViewById(R.id.days_remaining);
-        daysRemaining.setText(Long.toString(currentFriend.getDaysRemaining()));
+        String countDown = Long.toString(currentFriend.getDaysRemaining());
+        daysRemaining.setText(countDown);
         if (currentFriend.getDaysRemaining() < 10) {
             daysRemaining.setBackgroundColor(Color.RED);
         }

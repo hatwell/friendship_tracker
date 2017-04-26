@@ -6,27 +6,27 @@
     android:layout_height="match_parent"
     tools:context="example.codeclan.com.friendshiptracker.AllFriendsListActivity">
 
-    <LinearLayout
-        android:id="@+id/contacts_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/contacts_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
 
-        <TextView
-            android:id="@+id/gotoform"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/contact_your_pals" />
+        <!--<TextView-->
+            <!--android:id="@+id/gotoform"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:text="@string/contact_your_pals" />-->
 
-        <Button
-            android:id="@+id/open_contacts_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="openContactsButtonClicked"
-            android:text="@string/contacts_button" />
+        <!--<Button-->
+            <!--android:id="@+id/open_contacts_button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="openContactsButtonClicked"-->
+            <!--android:text="@string/contacts_button" />-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <ListView
         android:id="@+id/friends_list"
