@@ -20,14 +20,14 @@ public class Friend {
     private int totalDays;
     private int daysRemaining;
 
-    private Date dateSet;
+    private long dateSet;
     private TimeUnit timeUnit;
 
 
     private Date today = Calendar.getInstance().getTime();
 
 
-    public Friend(String firstName, String lastName, int totalDays, Date dateSet) {
+    public Friend(String firstName, String lastName, int totalDays, long dateSet) {
         this.id = 0;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -71,11 +71,13 @@ public class Friend {
     }
 
     public long getDaysRemaining() {
-        return this.getTotalDays() - this.differenceInDays(this.getDateSet(), today, TimeUnit.DAYS);
+        Date date;
+        date = new Date(this.getDateSet());
+        return this.getTotalDays() - this.differenceInDays(date, today, TimeUnit.DAYS);
     }
 
 
-    public Date getDateSet(){
+    public long getDateSet(){
         return dateSet;
     }
 
@@ -96,7 +98,7 @@ public class Friend {
     }
 
     public void setDateSet(long timestamp){
-        this.dateSet = new Date(timestamp);
+        this.dateSet = timestamp;
     }
 
     //end of getters and setters, now some more interesting stuff

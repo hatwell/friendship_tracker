@@ -61,7 +61,9 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         lastName.setText(currentFriend.getLastName());
 
         TextView dateSet = (TextView) listItemView.findViewById(R.id.date_set);
-        dateSet.setText(NiceDate.getNiceDate(currentFriend.getDateSet()));
+        Date date;
+        date = new Date(currentFriend.getDateSet());
+        dateSet.setText(NiceDate.getNiceDate(date));
 //        Log.d("date set: ", NiceDate.getNiceDate(currentFriend.getDateSet()));
 
         TextView today = (TextView) listItemView.findViewById(R.id.today);

@@ -3,8 +3,10 @@ package example.codeclan.com.friendshiptracker;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,7 +21,7 @@ import java.util.List;
 public class DBHandler extends SQLiteOpenHelper {
 
     //Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 555;
 
     //Database Name
     private static final String DATABASE_NAME = "friends_info";
@@ -55,7 +57,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 KEY_LAST_NAME + "TEXT, " +
                 KEY_TOTAL_DAYS + "INTEGER, " +
                 KEY_DAYS_REMAINING + "INTEGER, " +
-                KEY_DATE_SET + "DATETIME" +")";
+                KEY_DATE_SET + "INTEGER" +")";
         db.execSQL(CREATE_FRIENDS_TABLE);
 
     }
@@ -64,7 +66,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //Drop table if older existed
-        db.execSQL("DROP TABLE IF EXISTS" + TABLE_FRIENDS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDS);
         //Creating tables again
         onCreate(db);
     }
@@ -77,7 +79,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_FIRST_NAME, friend.getFirstName());
         values.put(KEY_LAST_NAME, friend.getLastName());
         values.put(KEY_TOTAL_DAYS, friend.getTotalDays());
-        values.put(KEY_DATE_SET, friend.getDateSet().getTime());
+        values.put(KEY_DATE_SET, friend.getDateSet());
 
         /*TODO some kinda datatype discrepancy here*/
         db.insert(TABLE_FRIENDS, null, values);
@@ -101,12 +103,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
+                Log.d(getClass().toString(), DatabaseUtils.dumpCursorToString(cursor));
                 Friend friend = new Friend();
                 friend.setId(Integer.parseInt(cursor.getString(0)));
                 friend.setFirstName(cursor.getString(1));
                 friend.setLastName(cursor.getString(2));
                 friend.setTotalDays(Integer.parseInt(cursor.getString(3)));
-                friend.setDateSet(cursor.getLong(5));
+                friend.setDateSet(Long.parseLong(cursor.getString(5)));
 
                 friendList.add(friend);
 
@@ -132,12 +135,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     public int updateFriend(Friend friend) {
+        long todayAsLong;
+        todayAsLong = today.getTime();
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_FIRST_NAME, friend.getFirstName());
         values.put(KEY_LAST_NAME, friend.getLastName());
         values.put(KEY_TOTAL_DAYS, friend.getTotalDays());
-        values.put(KEY_DATE_SET, today.toString());
+        values.put(KEY_DATE_SET, String.valueOf(todayAsLong));
 
         return db.update(TABLE_FRIENDS, values, KEY_ID + "=?",
                 new String[]{String.valueOf(friend.getId())});

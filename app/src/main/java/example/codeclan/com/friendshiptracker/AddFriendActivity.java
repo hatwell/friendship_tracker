@@ -59,8 +59,10 @@ public class AddFriendActivity extends AppCompatActivity {
         Log.d(getClass().toString(), "i'm clicking my add friend button");
 
         Date today = Calendar.getInstance().getTime();
+        long todayAsLong = today.getTime();
 
-        Friend newFriend = new Friend(first_name, last_name, number_days_total, today);
+
+        Friend newFriend = new Friend(first_name, last_name, number_days_total, todayAsLong);
 
         myDb.addFriend(newFriend);
         Intent intent = new Intent(this, AllFriendsListActivity.class);
