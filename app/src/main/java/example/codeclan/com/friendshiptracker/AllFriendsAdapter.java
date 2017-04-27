@@ -51,7 +51,6 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
         }
 
 
-
         //display first name
         TextView firstName = (TextView) listItemView.findViewById(R.id.first_name);
         firstName.setText(currentFriend.getFirstName());
@@ -59,16 +58,6 @@ public class AllFriendsAdapter extends ArrayAdapter<Friend> {
 
         TextView lastName = (TextView) listItemView.findViewById(R.id.last_name);
         lastName.setText(currentFriend.getLastName());
-
-        TextView dateSet = (TextView) listItemView.findViewById(R.id.date_set);
-        Date date;
-        date = new Date(currentFriend.getDateSet());
-        dateSet.setText(NiceDate.getNiceDate(date));
-//        Log.d("date set: ", NiceDate.getNiceDate(currentFriend.getDateSet()));
-
-        TextView today = (TextView) listItemView.findViewById(R.id.today);
-        today.setText(NiceDate.getNiceDate(date_today));
-//        Log.d("date today: ", NiceDate.getNiceDate(date_today));
 
         Button resetButton = (Button) listItemView.findViewById(R.id.reset_button);
         resetButton.setVisibility(View.VISIBLE);
