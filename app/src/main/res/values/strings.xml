@@ -13,5 +13,7 @@
 
     <string name="friend_contact_button">get in touch!</string>
     <string name="how_many_days_label">how often in days do you want to see your friend?</string>
+    <string name="enter_button">let\'s go!</string>
+    <string name="welcome">Friendship Tracker makes it easier for you to see your friends when you want to. Enter their details, and how often you want to see them, and the app will count down the days, and remind you to get in touch!</string>
 
 </resources>
